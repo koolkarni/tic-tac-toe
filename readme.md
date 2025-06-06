@@ -108,4 +108,3 @@ Simulates multiple games using threads and returns results.
 - All game state is persisted in PostgreSQL
 - `makeMove()` is synchronized per game to ensure consistency
 - Simulations are handled with native Java threads for concurrency
-```

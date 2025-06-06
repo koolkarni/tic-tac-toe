@@ -1,6 +1,3 @@
-Here's a properly formatted and copiable README.md file for your Tic-Tac-Toe Game Simulation API:
-
-```markdown
 # Tic-Tac-Toe Game Simulation API
 
 ## About the Project

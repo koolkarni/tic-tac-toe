@@ -3,5 +3,9 @@ package com.example.gameengine.demo.model;
 public enum GameStatus {
     WAITING,
     ONGOING,
-    COMPLETE
+    COMPLETE;
+
+    public boolean isComplete() {
+        return this == COMPLETE;
+    }
 }

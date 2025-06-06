@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "56440bce-71b6-43da-b6f1-5397a6e46022",
+		"name": "Game Engine API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16982047"
+	},
+	"item": [
+		{
+			"name": "Create Game - Success",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/games/create?playerId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"games",
+						"create"
+					],
+					"query": [
+						{
+							"key": "playerId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Game - Missing playerId",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/games/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"games",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join Game - Success",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/games/10/join?playerId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"games",
+						"10",
+						"join"
+					],
+					"query": [
+						{
+							"key": "playerId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join Game - Already Full",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/games/10/join?playerId=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"games",
+						"10",
+						"join"
+					],
+					"query": [
+						{
+							"key": "playerId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Move - Success",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"playerId\": 1, \"row\": 0, \"col\": 0}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/games/10/move",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"games",
+						"10",
+						"move"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make Move - Cell Occupied",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"playerId\": 2, \"row\": 0, \"col\": 0}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/games/10/move",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"games",
+						"10",
+						"move"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Game - Success",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/games/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"games",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Game - Not Found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/games/99999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"games",
+						"99999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Leaderboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/games/leaderboard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"games",
+						"leaderboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simulate Concurrent Games",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"totalUsers\": 6,\n  \"totalGames\": 10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/simulate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"simulate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error Case - Zero Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"totalUsers\": 0,\n  \"totalGames\": 5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/simulate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"simulate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error Case - Missing Field",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"totalGames\": 10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/simulate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"simulate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

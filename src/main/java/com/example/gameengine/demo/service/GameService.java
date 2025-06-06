@@ -143,9 +143,15 @@ public class GameService {
 
     private void createStatsIfAbsent(Long playerId) {
         playerStatsRepository.findById(playerId).orElseGet(() -> {
-            PlayerStats stats = new PlayerStats();
-            stats.setPlayerId(playerId);
-            return playerStatsRepository.save(stats);
+            synchronized (("playerStats-" + playerId).intern()) {
+                return playerStatsRepository.findById(playerId).orElseGet(() -> {
+                    PlayerStats stats = new PlayerStats();
+                    stats.setPlayerId(playerId);
+                    stats.setWins(0);
+                    stats.setTotalMovesInWins(0);
+                    return playerStatsRepository.save(stats);
+                });
+            }
         });
     }
 }

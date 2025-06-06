@@ -46,8 +46,11 @@ public class GameController {
         int[][] board = gameService.getBoard(gameId);
         return ResponseEntity.ok(new GameViewDTO(game, board));
     }
+
     @GetMapping("/leaderboard")
     public ResponseEntity<Map<String, List<PlayerStats>>> getLeaderboard() {
         return ResponseEntity.ok(gameService.getLeaderboard());
     }
+
+
 }

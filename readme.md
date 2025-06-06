@@ -20,7 +20,8 @@ This project is a Java Spring Boot application that simulates concurrent Tic-Tac
 - Docker (for PostgreSQL)
 
 ### How to Start PostgreSQL with Docker
-
+#### this step is optional you can directly run the project from intelliJ 
+#### as the ide will create the database for you.
 ```bash
 docker run --name game_postgres \
   -e POSTGRES_USER=postgres \
@@ -29,6 +30,7 @@ docker run --name game_postgres \
   -p 5432:5432 \
   -d postgres
 ```
+
 
 ### How to Run the Spring Boot App
 

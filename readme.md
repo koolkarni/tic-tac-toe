@@ -34,8 +34,8 @@ docker run --name game_postgres \
 
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd <your-project>
+git clone git@github.com:koolkarni/tic-tac-toe.git
+cd tic-tac-toe
 ```
 
 2. Configure database connection in `application.yml` or `application.properties`:

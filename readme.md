@@ -6,7 +6,7 @@ This project is a Java Spring Boot application that simulates concurrent Tic-Tac
 
 ## Tech Stack
 
-- Java 17
+- Java 17,24
 - Spring Boot
 - Spring Data JPA
 - PostgreSQL (Docker)
